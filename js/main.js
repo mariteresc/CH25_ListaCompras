@@ -108,9 +108,13 @@ btnAgregar.addEventListener("click", function(event){
         productosTotal.innerText=totalEnProductos;
         costoTotal += precio * parseFloat(txtNumber.value);
         precioTotal.innerText = `$ ${costoTotal.toFixed(2)}`; // el toFixed(2) hace que solo nos ponga 2 decimales en el total
-        localStorage.setItem("contadorProductos", contador);
-        localStorage.setItem("totalEnProductos", totalEnProductos);
-        localStorage.setItem("costoTotal", costoTotal.toFixed(2));
+        let resumen = `{"contadorProductos" : ${contador},
+                         "totalEnProductos" : ${totalEnProductos},
+                         "costoTotal        : ${costoTotal.toFixed(2)} "}`
+       
+        // localStorage.setItem("contadorProductos", contador);
+        // localStorage.setItem("totalEnProductos", totalEnProductos);
+        // localStorage.setItem("costoTotal", costoTotal.toFixed(2));
         txtNombre.value="";
         txtNumber.value=""; // Limpia mis campos de nombre y cantidad para seguir escribiendo
         txtNombre.focus(); // Me regresa el cursor a nombre despues de ingresar mi cantidad
